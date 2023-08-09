@@ -8,7 +8,7 @@
   ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
   -->
 
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -29,7 +29,7 @@
             android:orientation="vertical"
             tools:showIn="@layout/activity_home">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBar"
                 card_view:title="STT and TTS Demo"
                 card_view:titleTextColor="@color/colorAccent"
@@ -40,7 +40,7 @@
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                         android:textSize="21sp"
                         android:textStyle="bold" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/speechToText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -108,10 +108,10 @@
                     </ScrollView>
 
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -140,7 +140,7 @@
                         android:textSize="21sp"
                        />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/textToSpeech"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                         android:textSize="13sp"
                          />
 
-                    <android.support.v7.widget.AppCompatEditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/ttsInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -183,9 +183,9 @@
 
                 </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -241,11 +241,11 @@
                 </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
     </ScrollView>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,9 +10,10 @@
 
 package com.hiteshsahu.stt_tts.demo
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.support.design.widget.Snackbar
+import com.google.android.material.snackbar.Snackbar
 import com.hiteshsahu.stt_tts.R
 import com.hiteshsahu.stt_tts.translation_engine.ConversionCallback
 import com.hiteshsahu.stt_tts.translation_engine.TranslatorFactory
