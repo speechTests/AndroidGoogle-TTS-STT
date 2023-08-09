@@ -22,21 +22,27 @@ import com.hiteshsahu.stt_tts.translation_engine.TranslatorFactory
 import java.util.*
 
 
-class SpeechToTextConverter(private val conversionCallback: ConversionCallback)  : TranslatorFactory.IConverter {
+class SpeechToTextConverter(private val conversionCallback: ConversionCallback) : TranslatorFactory.IConverter {
 
-    private   val  TAG = SpeechToTextConverter::class.java.name
+    private val TAG = SpeechToTextConverter::class.java.name
 
     override fun initialize(message: String, appContext: Activity): SpeechToTextConverter {
 
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        intent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                message)
+        intent.putExtra(
+            RecognizerIntent.EXTRA_PROMPT,
+            message
+        )
         intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
-        intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
-                appContext.getPackageName())
+        intent.putExtra(
+            RecognizerIntent.EXTRA_CALLING_PACKAGE,
+            appContext.packageName
+        )
 
         //Add listeners
         val listener = CustomRecognitionListener()
@@ -65,7 +71,7 @@ class SpeechToTextConverter(private val conversionCallback: ConversionCallback) 
         }
 
         override fun onEndOfSpeech() {
-            Log.d(TAG, "onEndofSpeech")
+            Log.d(TAG, "onEndOfSpeech")
         }
 
         override fun onError(error: Int) {
@@ -76,7 +82,7 @@ class SpeechToTextConverter(private val conversionCallback: ConversionCallback) 
         override fun onResults(results: Bundle) {
             var translateResults = String()
             val data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-            for ( result in  data) {
+            for (result in data) {
                 translateResults += result + "\n"
             }
             conversionCallback.onSuccess(translateResults)
@@ -86,12 +92,12 @@ class SpeechToTextConverter(private val conversionCallback: ConversionCallback) 
             Log.d(TAG, "onPartialResults")
         }
 
-        override  fun onEvent(eventType: Int, params: Bundle) {
+        override fun onEvent(eventType: Int, params: Bundle) {
             Log.d(TAG, "onEvent $eventType")
         }
     }
 
-    override fun  getErrorText(errorCode: Int): String {
+    override fun getErrorText(errorCode: Int): String {
         val message: String
         when (errorCode) {
             SpeechRecognizer.ERROR_AUDIO -> message = "Audio recording error"
@@ -108,6 +114,4 @@ class SpeechToTextConverter(private val conversionCallback: ConversionCallback) 
         return message
     }
 
-
-
-} 
+}

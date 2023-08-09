@@ -56,8 +56,10 @@ abstract class BasePermissionActivity : AppCompatActivity() {
 
             if (permissionsList.size > 0) {
 
-                requestPermissions(permissionsList.toTypedArray(),
-                        REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS)
+                requestPermissions(
+                    permissionsList.toTypedArray(),
+                    REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS
+                )
                 return
             }
         //add listeners on view
@@ -95,7 +97,7 @@ abstract class BasePermissionActivity : AppCompatActivity() {
                 } else {
                     // Permission Denied
                     Toast.makeText(applicationContext, "Some Permissions are Denied Exiting App", Toast.LENGTH_SHORT)
-                            .show()
+                        .show()
 
                     finish()
                 }
