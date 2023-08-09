@@ -9,8 +9,8 @@
   -->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,14 +31,14 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBar"
-                card_view:title="STT and TTS Demo"
-                card_view:titleTextColor="@color/colorAccent"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                card_view:title="STT and TTS Demo"
+                card_view:titleTextColor="@color/colorAccent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view"
@@ -80,8 +80,8 @@
                         android:id="@+id/sttLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_below="@+id/sttHeading"
+                        android:layout_alignParentLeft="true"
                         android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/speechToText"
                         android:text="@string/speech_to_text_output"
@@ -92,8 +92,8 @@
                         android:id="@+id/wrap"
                         android:layout_width="wrap_content"
                         android:layout_height="80dp"
-                        android:layout_alignParentLeft="true"
                         android:layout_below="@+id/sttLabel"
+                        android:layout_alignParentLeft="true"
                         android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/speechToText"
                         android:background="@color/colorPrimary">
@@ -126,19 +126,18 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_toLeftOf="@+id/textToSpeech"
                         android:id="@+id/ttsHeading"
-                        android:layout_alignParentLeft="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="left"
-                        android:textStyle="bold"
+                        android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/textToSpeech"
+                        android:gravity="left"
                         android:text="Text to Speech"
                         android:textColor="@color/white"
                         android:textSize="21sp"
-                       />
+                        android:textStyle="bold" />
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/textToSpeech"
@@ -151,34 +150,32 @@
 
                     <TextView
                         android:id="@+id/ttsLabel"
-                        android:layout_below="@+id/ttsHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/ttsHeading"
                         android:layout_alignParentLeft="true"
+                        android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/textToSpeech"
-                        android:focusableInTouchMode="true"
                         android:backgroundTint="@color/colorAccent"
+                        android:focusableInTouchMode="true"
                         android:text="Text to speech input:"
                         android:textColor="@color/white"
-                        android:textSize="13sp"
-                         />
+                        android:textSize="13sp" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/ttsInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ttsLabel"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="20dp"
-                        android:gravity="left"
+                        android:layout_marginBottom="10dp"
                         android:focusable="true"
-                        app:backgroundTint="@color/colorAccent"
+                        android:gravity="left"
                         android:hint="Enter Text and click on speak button"
-                        android:textColorHint="@color/white"
                         android:textColor="@color/colorAccent"
+                        android:textColorHint="@color/white"
                         android:textSize="20sp"
-                        />
+                        app:backgroundTint="@color/colorAccent" />
 
 
                 </RelativeLayout>
@@ -192,12 +189,13 @@
                 android:layout_margin="2dp"
                 android:padding="10dp"
                 card_view:cardCornerRadius="4dp">
+
                 <LinearLayout
-                    android:padding="10dp"
-                    android:background="@color/colorPrimary"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
                     android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/error_heading"
@@ -213,7 +211,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:textColor="@color/white"
                         android:id="@+id/error_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -221,16 +218,16 @@
                         android:layout_marginTop="10dp"
                         android:gravity="left"
                         android:text="Error message:"
-                        android:textSize="13sp"
-                      />
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/erroConsole"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/error_label"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:gravity="left"
                         android:text="Error will be shown here"
                         android:textColor="#F00"
