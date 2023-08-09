@@ -26,59 +26,13 @@ abstract class BasePermissionActivity : AppCompatActivity() {
 
     private val REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(getActivityLayout())
-
-        if (Build.VERSION.SDK_INT >= 23) {
-            // Pain in A$$ Marshmallow+ Permission APIs
-            fuckMarshmallow()
-        } else {
-            // Pre-Marshmallow
-            setUpView()
-        }
-    }
-
-
-    //SetUp views after permission granted
-    abstract fun setUpView()
-
-    // activity view
-    abstract fun getActivityLayout(): Int
-
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun fuckMarshmallow() {
-
-        val permissionsList = ArrayList<String>()
-
-        if (!isPermissionGranted(permissionsList, Manifest.permission.RECORD_AUDIO))
-
-            if (permissionsList.size > 0) {
-
-                requestPermissions(
-                    permissionsList.toTypedArray(),
-                    REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS
-                )
-                return
-            }
-        //add listeners on view
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
         setUpView()
     }
 
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun isPermissionGranted(permissionsList: MutableList<String>, permission: String): Boolean {
-
-        if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
-            permissionsList.add(permission)
-
-            // Check for Rationale Option
-            if (!shouldShowRequestPermissionRationale(permission))
-                return false
-        }
-        return true
-    }
+    //SetUp views after permission granted
+    abstract fun setUpView()
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {

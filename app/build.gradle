@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.hiteshsahu.stt_tts"
-        minSdkVersion 17
+        minSdkVersion 28
         targetSdkVersion 33
         vectorDrawables.useSupportLibrary = true
         versionCode 1
@@ -17,6 +17,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     namespace 'com.hiteshsahu.stt_tts'
 }
