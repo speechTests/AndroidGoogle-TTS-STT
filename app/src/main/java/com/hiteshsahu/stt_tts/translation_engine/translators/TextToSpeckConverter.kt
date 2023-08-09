@@ -67,6 +67,7 @@ class TextToSpeckConverter(private val conversionCallaBack: ConversionCallback) 
 
             }
 
+            @Deprecated("Deprecated in Java")
             override fun onError(utteranceId: String) {
                 conversionCallaBack.onErrorOccurred("Some Error Occurred $utteranceId")
             }
